@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example</title>
+</head>
+<body>
+
+<h1 th:text="'Hello, ' + ${user.name} + '! Welcome to spring boot user page!'">...</h1>
+<br>
+<table border="1">
+    <tr>
+        <th th:width="50">Id</th>
+        <th th:width="100">Name</th>
+        <th th:width="100">Lastname</th>
+        <th th:width="50">Age</th>
+        <th th:width="100">Email</th>
+        <th th:width="100">Password</th>
+        <th th:width="100">Role</th>
+    </tr>
+
+    <tr>
+        <td th:utext="${user.id}">id</td>
+        <td th:utext="${user.name}">name</td>
+        <td th:utext="${user.lastname}">lastname</td>
+        <td th:utext="${user.age}">age</td>
+        <td th:utext="${user.email}">email</td>
+        <td th:utext="${user.password}">pass</td>
+        <td th:utext="${#strings.setJoin(user.getAuthorities, ',')}">role</td>
+    </tr>
+</table>
+<br>
+
+<th:authorize access="isAuthenticated()">
+    <h4><a href="/logout">Logout</a></h4>
+</th:authorize>
+
+</body>
+</html>

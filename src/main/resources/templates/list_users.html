@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+<body>
+
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+
+<div th:each="user : ${users}">
+    <table th:border="1">
+    <tr   th:height="50">
+        <td th:width="30"><a th:text="${user.getId()}"></a></td>
+        <td th:width="150"><a th:text="${user.getName()}"></a></td>
+        <td th:width="150"><a th:text="${user.getLastname()}"></a></td>
+        <td th:width="30"><a th:text="${user.getAge()}"></a></td>
+        <td th:width="150"><a th:text="${user.getEmail()}"></a></td>
+        <td th:width="150"><a th:text="${user.getPassword()}"></a></td>
+        <td th:width="120"><a th:text="${#strings.setJoin(user.getAuthorities, ',')}"></a></td>
+        <td th:width="40"><a th:href="@{/admin/{id}/edit_user(id=${user.getId()})}">edit</a></td>
+        <td th:width="40"><a th:href="@{/admin/{id}/remove_user(id=${user.getId()})}">delete</a></td>
+    </tr>
+    </table>
+</div>
+<br>
+
+<a href="/admin/create_user">Add new user</a>
+<a href="/user">Move to profile</a>
+
+<th:authorize access="isAuthenticated()">
+  <h4><a href="/logout">Logout</a></h4>
+</th:authorize>
+
+</div>
+</body>
+</html>
