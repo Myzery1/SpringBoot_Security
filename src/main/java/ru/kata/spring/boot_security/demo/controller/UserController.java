@@ -10,7 +10,7 @@ import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.repository.RoleRepository;
 import ru.kata.spring.boot_security.demo.repository.UserRepository;
-import ru.kata.spring.boot_security.demo.service.UserServiceImp;
+import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,12 +21,12 @@ import java.util.Set;
 public class UserController {
 
 
-    private final UserServiceImp userService;
+    private final UserService userService;
     final UserRepository userRepository;
     final RoleRepository roleRepository;
 
     @Autowired
-    public UserController(UserServiceImp userService, UserRepository userRepository, RoleRepository roleRepository) {
+    public UserController(UserService userService, UserRepository userRepository, RoleRepository roleRepository) {
         this.userService = userService;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
