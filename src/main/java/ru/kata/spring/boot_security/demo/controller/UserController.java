@@ -26,7 +26,7 @@ public class UserController {
     final RoleRepository roleRepository;
 
     @Autowired
-    public UserController(UserService userService, UserRepository userRepository, RoleRepository roleRepository) {
+    private UserController(UserService userService, UserRepository userRepository, RoleRepository roleRepository) {
         this.userService = userService;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
