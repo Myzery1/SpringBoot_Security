@@ -9,10 +9,13 @@
 
 <div sec:authorize="hasRole('ROLE_ADMIN')">
 
+
 <a text>Are you sure you want to delete this user?</a>
-<td><a class="btn btn-primary" th:href="@{/admin/user_delete/{id}(id=${user.id})}"
-       role="button">Delete</a></td>
-</form>
+
+    <form th:method="delete" th:action="@{/admin/user_delete/{id}(id=${user.id})}">
+        <input type="submit" value="delete"/>
+    </form>
+
 
 <th:authorize access="isAuthenticated()">
     <h4><a href="/logout">Logout</a></h4>

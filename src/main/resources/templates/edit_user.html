@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit</title>
 </head>
 <body>
 
 <div sec:authorize="hasRole('ROLE_ADMIN')">
 
-<form th:method="PATCH" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
+<form th:method="patch" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
 
     <table border="1"><tr height="50"><td width="30">
         <label for="id">ID</label>
@@ -41,7 +41,7 @@
         <br/>
     </td></tr></table>
     <input type="submit" value="Update user"/>
-</form>
+    </form>
 
 <th:authorize access="isAuthenticated()">
     <h4><a href="/logout">Logout</a></h4>

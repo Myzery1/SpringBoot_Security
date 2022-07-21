@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
-import ru.kata.spring.boot_security.demo.repository.RoleRepository;
 import ru.kata.spring.boot_security.demo.repository.UserRepository;
 
 import java.util.Collection;
@@ -19,13 +18,10 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImp implements UserService, UserDetailsService {
 
-    final UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    final RoleRepository roleRepository;
-
-    private UserServiceImp(UserRepository userRepository, RoleRepository roleRepository) {
+    UserServiceImp(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
     }
 
     @Override
