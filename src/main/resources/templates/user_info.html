@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Spring Security Example</title>
 </head>
@@ -19,12 +19,12 @@
     </tr>
 
     <tr>
-        <td th:utext="${user.id}">id</td>
-        <td th:utext="${user.name}">name</td>
-        <td th:utext="${user.lastname}">lastname</td>
-        <td th:utext="${user.age}">age</td>
-        <td th:utext="${user.email}">email</td>
-        <td th:utext="${user.password}">pass</td>
+        <td th:utext="${user.getId()}">id</td>
+        <td th:utext="${user.getName()}">name</td>
+        <td th:utext="${user.getLastname()}">lastname</td>
+        <td th:utext="${user.getAge()}">age</td>
+        <td th:utext="${user.getEmail()}">email</td>
+        <td th:utext="${user.getPassword()}">pass</td>
         <td th:utext="${#strings.setJoin(user.getAuthorities, ',')}">role</td>
     </tr>
 </table>

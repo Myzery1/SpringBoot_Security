@@ -20,7 +20,7 @@ public class AdminController {
     private final RoleRepository roleRepository;
 
     @Autowired
-    AdminController(UserService userService, RoleRepository roleRepository) {
+    private AdminController(UserService userService, RoleRepository roleRepository) {
         this.userService = userService;
         this.roleRepository = roleRepository;
     }
@@ -60,7 +60,7 @@ public class AdminController {
         return "redirect:/admin/";
     }
 
-    public Set<Role> getRoles(String[] roles) {
+    private Set<Role> getRoles(String[] roles) {
         Set<Role> roleSet = new HashSet<>();
         for (String role : roles) {
             roleSet.add(roleRepository.findByName(role));

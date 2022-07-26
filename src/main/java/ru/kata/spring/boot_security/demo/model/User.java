@@ -40,6 +40,14 @@ public class User implements UserDetails {
                 (r.getAuthority())).collect(Collectors.toList());
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String getUsername() {
         return getEmail();
